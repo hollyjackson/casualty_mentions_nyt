@@ -1,17 +1,16 @@
-This live document and repository provides a transparent overview of the methods, data, and code behind the analysis of death mentions in the _New York Times_ as reported in [this Instagram post](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi from October 19, 2023.
+This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ as reported [on Instagram](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi on October 19, 2023.
 
-All data, code, and analysis was produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
+All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
 
 # Overview 
 
-Below, I provide an overview of the entire pipeline to produce the results in [this Instagram post](https://www.instagram.com/p/Cyl9HR7O4ap/).
+Below, I provide an overview of the entire pipeline to produce the results.
 
-There are three main steps:
+There are four main steps:
 1. I filter the **source data**, i.e. articles from the _New York Times_, for relevant content.
 2. I pre-process all of the article data using a popular and reliable **natural language processing** pipeline: [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/).  I use Stanford CoreNLP to parse the grammatical structure of the sentences in the articles.
 3. I use the results from pre-processing to automatically filter any sentences related to death.  Then, I **manually tag** whether the victim in each sentence is Palestinian, Israeli, both (i.e. for multiple victims), or neither (i.e. something unrelated).
-4. Finally, I compare the results to cumulative death counts from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA).
-
+4. Finally, I compare the results to **cumulative casualty counts** from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA).
 
 The aim is for these results to be fully replicable for those who have access to the article source data.
 
@@ -59,7 +58,7 @@ To produce the second chart, I compiled casualty data for Israelis and Palestini
 
 The New York Times has consistently mentioned Israeli deaths more often than Palestinian deaths. What’s more, their coverage of Israeli deaths is *increasing* as more Palestinians are dying. Israeli deaths have been mentioned the most in the past few days, even though Israeli deaths have plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about 4 Palestinians had to die to receive a mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
 
-Please read the notes below on this data - it’s crucial context.
+Please read the notes below on this data -- it’s crucial context.
 
 * In addition to the bias in sheer volume of coverage, there was a huge difference in the language used. The word “slaughter” was used 53 times in these articles since 10/7 to describe the deaths of Israelis and zero times to describe the death of Palestinians. The word “massacre” shows up 24 times in reference to Israelis and once in reference to Palestinians.
 * The articles rarely mention the names of Palestinians who die — instead using terms like “mourner”, “resident”, “assailant” or “militant”.
