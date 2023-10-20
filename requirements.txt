@@ -1,0 +1,6 @@
+matplotlib
+pandas
+numpy
+lxml
+bs4
+nltk
