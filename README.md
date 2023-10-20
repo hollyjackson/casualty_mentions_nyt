@@ -14,13 +14,13 @@ There are four main steps:
 
 The aim is for these results to be fully replicable for those who have access to the article source data.
 
-## 1. Dataset
+### 1. Dataset
 
 All article data from _The New York Times_ was collected and analyzed through ProQuest TDM (Text and Data Mining) Studio.  ProQuest is a collection of many databases that provide access to thousands of journals, magazines, newspapers, dissertations, and other publications.  TDM Studio is a text and data mining solution for research, teaching and learning that allows researchers to analyze ProQuest's collections.
 
 Through ProQuest TDM studio, I have acces to all print and online articles in _The New York Times_.  I identified all articles posted by _The New York Times_ between October 7, 2023, and October 18, 2023, that contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 991 articles that matches these search criteria.
 
-## 2. Data Pre-Processing
+### 2. Data Pre-Processing
 
 For each article of the 991 pre-filtered articles, I applied Stanford CoreNLP to derive linguistic annotations for text, including token and sentence boundaries, parts of speech, named entities, and dependency and constituency parses.
 
@@ -34,7 +34,7 @@ java -Xmx10g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators token
 
 where ```all-files-israel-palestine-war.txt``` sequentially lists the filenames of each article to be processed.
 
-## 3. Automated and Manual Tagging
+### 3. Automated and Manual Tagging
 
 Using the linguistic annotations from Stanford CoreNLP, I automatically extract all sentences with verbs related to death using a pre-compiled word bank.  Five hundred of the 991 articles contained sentences related to death.  I built a simple user interface that presents each sentence to the annotator and asks them to identify the victim described in the sentence as either Palestinian, Israeli, both (if the sentence contains multiple victimes), or none (if the sentence is unrelated to Palestine and Israel).
 
