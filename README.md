@@ -2,7 +2,7 @@ This live document and repository provide a transparent overview of the methods,
 
 All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
 
-# Overview 
+## Overview 
 
 Below, I provide an overview of the entire pipeline to produce the results.
 
@@ -54,7 +54,7 @@ All of the manually-tagged results are compiled in ```tagged_data.csv```.
 
 To produce the second chart, I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 18, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs.  The spreadsheet ```ocha_data_comparison.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with their respective OCHA sources for each day.  In addition, the final death mention counts from step 3 are included in the final for ease of plotting.
 
-# Results 
+## Results 
 
 The New York Times has consistently mentioned Israeli deaths more often than Palestinian deaths. What’s more, their coverage of Israeli deaths is *increasing* as more Palestinians are dying. Israeli deaths have been mentioned the most in the past few days, even though Israeli deaths have plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about 4 Palestinians had to die to receive a mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
 
@@ -65,7 +65,7 @@ Please read the notes below on this data -- it’s crucial context.
 * In one article, a murdered Palestinian was simply referred to as the “bloodied corpse” of a presumed terrorist. This is still counted as a mention of a Palestinian death in the data despite the framing. Israelis who died were often mentioned individually and by name with reference to their families and professions which humanized them in comparison to anonymous Palestinians.
 
 
-# Requirements and Implementation Details
+## Requirements and Implementation Details
 
 This codebase was run using python 3.9 on a Linux machine.
 
@@ -82,10 +82,9 @@ pip3 install -r requirements.txt
 ```
 
 
-# Note on potential biases during the tagging process
+## Note on potential biases during the tagging process
 
-During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim
-bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
+During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
 
 In addition, manually tagging data can be subjective.  To minimize subjectivity, the data was manually tagged according to the following general rules:
 * The victim must be Palestinian or Israeli or the death otherwise occured in the West Bank, Gaza, or Israel ('48 lands)
