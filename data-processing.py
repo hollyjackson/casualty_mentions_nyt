@@ -125,10 +125,6 @@ import datetime as dt
 
 def parse_date(date_str):
     return dt.datetime.strptime(date_str, '%Y-%m-%d').date()
-
-def in_range(date_str, year_thresh=2011):
-    date = parse_date(date_str)
-    return date.year >= year_thresh
     
 
 
@@ -153,20 +149,19 @@ while index < len(input_files):
         file, title, date, content = extract_data(input_files[index])
 
         # Assemble as part of large text block
-        if in_range(date):
-            file_count += 1
-            text += " F-N-S-T-A-R-T. "
-            text += file
-            text += " F-N-E-N-D. "
-            text += " D-A-T-E-S-T-A-R-T. "
-            text += date
-            text += " D-A-T-E-E-N-D. "
-            text += " T-I-T-L-E-S-T-A-R-T. "
-            text += title
-            text += " T-I-T-L-E-E-N-D. "
-            text += " T-E-X-T-S-T-A-R-T. "
-            text += content
-            text += " T-E-X-T-E-N-D. "
+        file_count += 1
+        text += " F-N-S-T-A-R-T. "
+        text += file
+        text += " F-N-E-N-D. "
+        text += " D-A-T-E-S-T-A-R-T. "
+        text += date
+        text += " D-A-T-E-E-N-D. "
+        text += " T-I-T-L-E-S-T-A-R-T. "
+        text += title
+        text += " T-I-T-L-E-E-N-D. "
+        text += " T-E-X-T-S-T-A-R-T. "
+        text += content
+        text += " T-E-X-T-E-N-D. "
         
         # Check next file
         index += 1
