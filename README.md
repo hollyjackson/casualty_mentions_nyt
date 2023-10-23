@@ -1,4 +1,4 @@
-This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ as reported [on Instagram](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi on October 19, 2023.
+This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ as reported [on Instagram](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi on October 19, 2023.  All updates and corrections to the Instagram posts can be found in the Updates and Corrections section.
 
 All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
 
@@ -54,9 +54,15 @@ All of the manually-tagged results are compiled in ```tagged_data.csv```.
 
 To produce the second chart, I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 18, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs.  The spreadsheet ```ocha_data_comparison.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with their respective OCHA sources for each day.  In addition, the final death mention counts from step 3 are included in the final for ease of plotting.
 
+## Updates and Corrections
+
+Please note, there is a slight discrepancy in the chart in the original Instagram post.  All death mention information is entirely accurate.  Dates were accidentally selected from the neighboring article.  The fully-updated trends are shown below.
+
+![image](death_mentions.nyt)
+
 ## Results 
 
-The New York Times has consistently mentioned Israeli deaths more often than Palestinian deaths. What’s more, their coverage of Israeli deaths is *increasing* as more Palestinians are dying. Israeli deaths have been mentioned the most in the past few days, even though Israeli deaths have plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about 4 Palestinians had to die to receive a mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
+The New York Times has consistently mentioned Israeli deaths more often than Palestinian deaths. On average, about 4 Palestinians had to die to receive a mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
 
 Please read the notes below on this data -- it’s crucial context.
 
