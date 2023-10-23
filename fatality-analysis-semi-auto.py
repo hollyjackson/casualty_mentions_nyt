@@ -361,6 +361,8 @@ assigned_sentences = {} # init to handle duplicates
 
 for index in range(0, len(input_files), sample_size):    
 
+    indices = []
+    titles = []
     dates = []
     voices = []
     categories = []
@@ -382,13 +384,16 @@ for index in range(0, len(input_files), sample_size):
     f = open(original_filename, "r")
     article_text = f.read()
     f.close() 
+
+    # Extract original date
+    _, title, date, _ = extract_data(input_files[index])
     
     # Extract NLP results
     sentences = data["sentences"]    
     text_all_sentences = extract_sentences(sentences)
     
     # Iterate through POS labels for each token
-    file_count = 0
+    file_count = -1
     fn_started = False
     for sentence in sentences:
         sentence_index = sentence["index"]
@@ -400,8 +405,8 @@ for index in range(0, len(input_files), sample_size):
             sentence_text += token["before"] + token["word"] + token["after"]
         
         # only relevant if sample_size > 1
-        if "T-I-T-L-E-S-T-A-R-T" in sentence_text:
-            file_count += 1
+        # if "T-I-T-L-E-S-T-A-R-T" in sentence_text:
+        #     file_count += 1
 
         # create a data structure that maps governor dep_idx to dependencies
         dependencies_by_governor = [ [] for i in range(len(tokens)+1) ]
@@ -532,23 +537,29 @@ for index in range(0, len(input_files), sample_size):
                 categories.append(category)
             
             if assigned and category != 'none':
-                date_str = extract_date(index, file_count)
-                date = parse_date(date_str)
+                # date_str = extract_date(index, file_count)
+                # date = parse_date(date_str)
                 dates.append(date)
                 voices.append(voice)
                 recorded_sentences.append(sentence_text)
+
+                # metadata
+                titles.append(title)
+                indices.append(index)
                 
-                # add to dictionary
+                # add to dictionary to handle duplicates
                 assigned_sentences[sentence_text] = category
 
                 
     
     # After all sentences are complete, save info for a file
     file_dict = {
-        'dates': dates,
-        'voices': voices,
-        'categories': categories,
-        'sentence': recorded_sentences
+        'article_index': indices,
+        'article_title': titles,
+        'article_date': dates,
+        'sentence': recorded_sentences,
+        'category': categories,
+        'voice': voices
     }
     df = pd.DataFrame(file_dict)
     df.to_csv(counts_prefix + 'articles_'+str(index)+'.csv',index=False)
