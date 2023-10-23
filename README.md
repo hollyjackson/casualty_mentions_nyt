@@ -58,7 +58,7 @@ To produce the second chart, I compiled casualty data for Israelis and Palestini
 
 ## Updates and Corrections
 
-Please note, there is a slight discrepancy in the chart in the original Instagram post.  All death mention information is entirely accurate.  Dates were accidentally selected from the neighboring article.  The fully-updated trends are shown below.
+1. Please note, there is a slight discrepancy in the dates in the chart of _New York Times_ death mentions in [this post]((https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate.  The fully-updated trends are shown below.
 
 ![image](death_mentions.nyt)
 
