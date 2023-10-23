@@ -1,4 +1,5 @@
-﻿Date,West Bank Casualties Since October 7,West Bank Injuries Since October 7,Gaza Casualties Since October 7,Gaza Injuries Since October 7,Israel Casualties Since October 7,Israel Injuries Since October 7,"Source, retrieved 10/19 1:44am PT",Mentions of Palestinian Deaths NYT (Based on Date Listed at Top of Article),Mentions of Israeli Deaths NYT (Based on Date Listed at Top of Article),Mentions of Palestinian Deaths NYT (Based on date article was last updated),Mentions of Israeli Deaths NYT (Based on date article was last updated)
+﻿,West Bank,,Gaza,,Israel,,,Death mentions NYT,,,
+Date,Casualties since 10/7,Injuries since 10/7,Casualties since 10/7,Injuries since 10/7,Casualties since 10/7,Injuries since 10/7,Source,Palestinian (BASED ON OFF-BY-ONE DATES),Israeli (BASED ON OFF-BY-ONE DATES),Palestinian,Israeli
 10/18/2023,64,1284,3478,12500,1300,4562,https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-12,84,157,89,43
 10/17/2023,61,1230,3000,12500,1300,4229,https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-11,128,197,82,56
 10/16/2023,58,1176,2808,10850,1300,4121,https://www.ochaopt.org/content/hostilities-gaza-strip-and-israel-flash-update-10,61,102,58,106
