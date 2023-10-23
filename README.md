@@ -94,8 +94,9 @@ pip3 install -r requirements.txt
 
 During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
 
-In addition, manually tagging data can be subjective.  To minimize subjectivity, the data was manually tagged according to the following general rules:
+In addition, manually tagging data can be subjective and can of course suffer from human error.  To minimize subjectivity, the data was manually tagged according to the following general rules:
 * The victim must be Palestinian or Israeli or the death otherwise occured in the West Bank, Gaza, or Israel ('48 lands)
 * The mention cannot be speculative (i.e. "He may die") and must have already happened
 * The mention must refer to a fatality event that has happened on or since 10/7
 * Injuries do not count
+
