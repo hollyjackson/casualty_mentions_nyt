@@ -1,4 +1,7 @@
-This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ as reported [on Instagram](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi on October 19, 2023.
+This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ and other mainstream US newspapers.
+
+Updates from this research have been posted on Instagram  in the following posts:
+* [By Mona Chalabi](https://www.instagram.com/p/Cyl9HR7O4ap/)on October 19, 2023.
 
 Because this project is being completed **live** to keep up with the urgency current events, please note all graphs and images posted are subject to updates and corrections.  All updates and corrections to the graphs can be found in the [**Updates and Corrections**](https://github.com/hollyjackson/casualty_mentions_nyt/blob/main/README.md#updates-and-corrections) section of this document.  I am working to make this project as _transparent_ as possible in methodology and results.
 
