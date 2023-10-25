@@ -1,11 +1,9 @@
-This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of death mentions in _The New York Times_ and other mainstream US newspapers.
+This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of anti-Palestinian media bias in _The New York Times_ and other mainstream US newspapers since October 7, 2023.  All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
 
-Updates from this research have been posted on Instagram  in the following posts:
-* [By Mona Chalabi](https://www.instagram.com/p/Cyl9HR7O4ap/)on October 19, 2023.
+Updates from this research have been posted on Instagram at the following links:
+* [Post](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabion October 19, 2023.
 
-Because this project is being completed **live** to keep up with the urgency current events, please note all graphs and images posted are subject to updates and corrections.  All updates and corrections to the graphs can be found in the [**Updates and Corrections**](https://github.com/hollyjackson/casualty_mentions_nyt/blob/main/README.md#updates-and-corrections) section of this document.  I am working to make this project as _transparent_ as possible in methodology and results.
-
-All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
+**Please note:** This project is being completed live to keep up with the urgency current events.  All graphs and images posted are subject to updates and corrections.  All updates and corrections to the graphs can be found in the [**Updates and Corrections**](https://github.com/hollyjackson/casualty_mentions_nyt/blob/main/README.md#updates-and-corrections) section of this document.  I am working to make this project as _transparent_ as possible in methodology and results so anyone from the public can audit and replicate the results.  If you find any mistakes or problems in this repository, please let me know.  My inbox is always open at [holly_jackson@berkeley.edu](mailto:hollyjackson@berkeley.edu).
 
 ## Overview 
 
