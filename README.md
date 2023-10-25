@@ -91,7 +91,7 @@ pip3 install -r requirements.txt
 ```
 
 
-## Note on potential biases during the tagging process
+## Potential Sources of Bias and Error
 
 During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
 
