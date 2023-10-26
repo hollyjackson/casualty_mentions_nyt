@@ -7,6 +7,8 @@ Snapshots from this research have been posted on Instagram at the following link
 
 ## Overview 
 
+In this study, I aim to provide data on mentions of Palestinian and Israeli deaths in _The New York Times_ and other mainstream US newspapers since October 7, 2023.  I compare this data to up-to-date casualty counts from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA).
+
 Below, I provide an overview of the entire pipeline to produce the results.
 
 There are four main steps:
@@ -27,7 +29,7 @@ Through ProQuest TDM studio, I have acces to all print and online articles in _T
 
 For each article of the 991 pre-filtered articles, I applied Stanford CoreNLP to derive linguistic annotations for text, including token and sentence boundaries, parts of speech, named entities, and dependency and constituency parses.
 
-The script ```data-processing.py``` prepares the articles from the ProQuest database for analysis with Stanford CoreNLP.
+The script ```code/data-processing.py``` prepares the articles from the ProQuest database for analysis with Stanford CoreNLP.
 
 After running the data processing script, I use Java (v.1.8) to process all the articles with Stanford CoreNLP using the following command:
 
@@ -49,19 +51,13 @@ The data is manually tagged according to the following general rules:
 
 There is also an option for 'Next', if the sentence contains insufficient details for classification.  If the annotator selects 'Next', the sentence is shown in context with the three preceding and three following sentences.  If there is still insufficient details, the annotator can select 'Next' one more time to display the entire text of the article.
 
-The script ```fatality-analysis-semi-auto.py``` performs the automatic tagging and displays the user interface for manual tagging.  Any sentences tagged 'Palestine' or 'Israel' are saved to CSV files aling with relevant article metadata.
+The script ```code/fatality-analysis-semi-auto.py``` performs the automatic tagging and displays the user interface for manual tagging.  Any sentences tagged 'Palestine' or 'Israel' are saved to CSV files aling with relevant article metadata.
 
-All of the manually-tagged results are compiled in ```tagged_data.csv```.
+All of the manually-tagged results are compiled in ```data/tagged_data.csv```.
 
 ### 4. Comparisons to UN fatality data 
 
 To produce the second chart, I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 18, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs.  The spreadsheet ```ocha_data_comparison.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with their respective OCHA sources for each day.  In addition, the final death mention counts from step 3 are included in the final for ease of plotting.
-
-## Updates and Corrections
-
-[10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
-
-![image coming soon](images/death_mentions_nyt_10-7_to_10-18.png)
 
 ## Results 
 
@@ -72,6 +68,24 @@ Please read the notes below on this data -- it’s crucial context.
 * In addition to the bias in sheer volume of coverage, there was a huge difference in the language used. The word “slaughter” was used 53 times in these articles since 10/7 to describe the deaths of Israelis and zero times to describe the death of Palestinians. The word “massacre” shows up 24 times in reference to Israelis and once in reference to Palestinians.
 * The articles rarely mention the names of Palestinians who die — instead using terms like “mourner”, “resident”, “assailant” or “militant”.
 * In one article, a murdered Palestinian was simply referred to as the “bloodied corpse” of a presumed terrorist. This is still counted as a mention of a Palestinian death in the data despite the framing. Israelis who died were often mentioned individually and by name with reference to their families and professions which humanized them in comparison to anonymous Palestinians.
+
+## Updates and Corrections
+
+[10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
+
+![image coming soon](images/death_mentions_nyt_10-7_to_10-18.png)
+
+
+
+## Potential Sources of Bias and Error
+
+During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
+
+In addition, manually tagging data can be subjective and can of course suffer from human error.  To minimize subjectivity, the data was manually tagged according to the following general rules:
+* The victim must be Palestinian or Israeli or the death otherwise occured in the West Bank, Gaza, or Israel ('48 lands)
+* The mention cannot be speculative (i.e. "He may die") and must have already happened
+* The mention must refer to a fatality event that has happened on or since 10/7
+* Injuries do not count
 
 
 ## Requirements and Implementation Details
@@ -89,15 +103,3 @@ All other required libraries can all be installed as follows:
 ```bash
 pip3 install -r requirements.txt
 ```
-
-
-## Potential Sources of Bias and Error
-
-During data collection, I used pre-trained natural languag processing models to parse the grammatical structure of all sentences in each article.  It is important to contextualize that pre-trained natural language processing models do not provide unbiased metrics.  Since they are trained on a corpus of texts that have Orientalist sentiments, the classifiers themselves carry this same anti-Arab, anti-Muslim bias.  Studies have found persistent sexist, racist, and Islamophobic bias in highly-used natural language processing toolkits (Abid et al., 2021; Bolukbasi et al., 2016; Bordia and Bowman, 2019; Lu et al., 2020; Nadeem et al., 2020; Shearer et al., 2019; Sheng et al., 2019).  As a result, the results should be considered in the context of anti-Palestinian bias in artificial intelligence tools, indicating anti-Palestinian bias is likely deeper than these results are capable of measuring.
-
-In addition, manually tagging data can be subjective and can of course suffer from human error.  To minimize subjectivity, the data was manually tagged according to the following general rules:
-* The victim must be Palestinian or Israeli or the death otherwise occured in the West Bank, Gaza, or Israel ('48 lands)
-* The mention cannot be speculative (i.e. "He may die") and must have already happened
-* The mention must refer to a fatality event that has happened on or since 10/7
-* Injuries do not count
-
