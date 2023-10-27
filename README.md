@@ -73,7 +73,7 @@ Please read the notes below on this data -- it’s crucial context.
 
 [10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
 
-![image coming soon](images/death_mentions_nyt_10-7_to_10-18.png)
+![image coming soon](images/mentions_nyt_styled.jpg)
 
 
 
