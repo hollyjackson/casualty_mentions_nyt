@@ -1,6 +1,7 @@
 This live document and repository provide a transparent overview of the methods, data, and code behind the analysis of anti-Palestinian media bias in _The New York Times_ and other mainstream US newspapers since October 7, 2023.  All data, code, and analysis were produced by Holly Jackson, a graduate student of computer science at the University of California, Berkeley.
 
 Snapshots from this research have been posted on Instagram at the following links:
+* [Post](https://www.instagram.com/p/Cy8iWSfukzE/) by Mona Chalabi on October 28, 2023.
 * [Post](https://www.instagram.com/p/Cyl9HR7O4ap/) by Mona Chalabi on October 19, 2023.
 
 **Please note:** This project is being completed live to keep up with the urgency of current events.  As a result, all graphs and images posted are subject to updates and corrections, which will be posted in the [**Updates and Corrections**](https://github.com/hollyjackson/casualty_mentions_nyt/blob/main/README.md#updates-and-corrections) section of this document.  Please use the most up-to-date content if you are reporting on the results.  I am working to make this project as _transparent_ as possible in methodology and results so anyone from the public can audit and replicate the results.  If you find any mistakes or problems in this repository, please let me know.  My inbox is always open at [holly_jackson@berkeley.edu](mailto:hollyjackson@berkeley.edu).
