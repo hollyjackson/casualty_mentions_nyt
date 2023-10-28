@@ -73,7 +73,7 @@ I repeated this process for multiple datasets and produced files of the manually
 
 I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 22, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA).  The spreadsheet ```data/ocha_data_oct7_to_oct22.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with the respective OCHA sources for each day.
 
-This data can be used to produce a number of interesting metrics.  Fatality counts can be compared side-by-side to plots of mentions of Palestinian and Israeli deaths in each newspaper, which for example is done for _The New York Times_ in ```images/mentions_nyt_styled.jpg```.  In addition, dividing the number of fatalities by the number of mentions of deaths can produce a ratio of deaths-per-mention, i.e. how many people die per each mention in a newspaper.
+This data can be used to produce a number of interesting metrics.  Fatality counts can be compared side-by-side to plots of mentions of Palestinian and Israeli deaths in each newspaper  In addition, dividing the number of fatalities by the number of mentions of deaths can produce a ratio of deaths-per-mention, i.e. how many people die per each mention in a newspaper.
 
 ![OCHA results](images/cumulative_deaths_ocha_oct7_to_oct22.jpg)
 
@@ -109,7 +109,7 @@ _The Wall Street Journal_ has consistently mentioned Israeli deaths more often t
 
 [10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
 
-![styled corrected version](images/mentions_nyt_styled.jpg)
+![styled corrected version](images/mentions_nyt_oct7_to_oct18.jpg)
 
 
 ## Potential Sources of Bias and Error
