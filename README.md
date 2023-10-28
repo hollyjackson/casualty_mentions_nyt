@@ -75,7 +75,7 @@ I compiled casualty data for Israelis and Palestinians from October 7, 2023, to 
 
 This data can be used to produce a number of interesting metrics.  Fatality counts can be compared side-by-side to plots of mentions of Palestinian and Israeli deaths in each newspaper, which for example is done for _The New York Times_ in ```images/mentions_nyt_styled.jpg```.  In addition, dividing the number of fatalities by the number of mentions of deaths can produce a ratio of deaths-per-mention, i.e. how many people die per each mention in a newspaper.
 
-![OCHA results](images/cumulative_data_ocha_oct7_to_oct22.jpg)
+![OCHA results](images/cumulative_deaths_ocha_oct7_to_oct22.jpg)
 
 ## Results 
 
@@ -83,7 +83,7 @@ All tagged data can be found in the ```data``` subdirectory, and all images can 
 
 ### _The New York Times_ 
 
-![NYT results](images/mentions_nyt_oct7_to_oct22.png)
+![NYT results](images/mentions_nyt_oct7_to_oct22.jpg)
 
 _The New York Times_ has consistently mentioned Israeli deaths more often than Palestinian deaths overall from 10/7 to 10/22. Israeli deaths have been mentioned the most on 10/12 and 10/13, even though Israeli deaths plateaued since 10/12 and Palestinian deaths have skyrocketed.  Coverage of Israeli deaths *increased* as Palestinian deaths began to skyrocket.  On average, about four Palestinians died per each mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
 
