@@ -107,7 +107,7 @@ _The Wall Street Journal_ has consistently mentioned Israeli deaths more often t
 
 ## Updates and Corrections
 
-[10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
+[10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/), discovered several days after it was originally uploaded.  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
 
 ![styled corrected version](images/mentions_nyt_oct7_to_oct18.jpg)
 
