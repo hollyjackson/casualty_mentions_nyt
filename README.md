@@ -21,27 +21,36 @@ The aim is for these results to be fully replicable for those who have access to
 
 ### 1. Dataset
 
-All article data from _The New York Times_ was collected and analyzed through ProQuest TDM (Text and Data Mining) Studio.  ProQuest is a collection of many databases that provide access to thousands of journals, magazines, newspapers, dissertations, and other publications.  TDM Studio is a text and data mining solution for research, teaching and learning that allows researchers to analyze ProQuest's collections.  Unfortunately, due to NYT terms and conditions on data scraping, the original source data cannot be shared from ProQuest TDM Studio, so I do not have the rights to upload it to this repository.  However, all NYT article data can be downloaded manually from the NYT website.
+All article data from these newspapers was collected and analyzed through ProQuest TDM (Text and Data Mining) Studio.  ProQuest is a collection of many databases that provide access to thousands of journals, magazines, newspapers, dissertations, and other publications.  TDM Studio is a text and data mining solution for research, teaching and learning that allows researchers to analyze ProQuest's collections.
 
-Through ProQuest TDM studio, I have acces to all print and online articles in _The New York Times_.  I identified all articles posted by _The New York Times_ between October 7, 2023, and October 18, 2023, that contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 991 articles that matches these search criteria.
+Through ProQuest TDM Studio, I have acces to all print and online articles in _The New York Times_, _The Washington Post_, _The Wall Street Journal_, and more.  Unfortunately, due to most newspapers' terms and conditions on data scraping, the original source data cannot be shared from ProQuest TDM Studio, so I do not have the rights to upload it to this repository.  However, all article data can be downloaded or copied manually from the respective newspapers' website.
+
+I produced a number of datasets for this research:
+1. I identified all articles posted by _The New York Times_ between October 7, 2023, and October 18, 2023, that contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 991 articles that matches these search criteria.  All articles were downloaded as of 6pm ET on October 18.
+2. I identified all articled posted by _The New York Times_ between October 7, 2023, and October 22, 2023, hat contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 1325 articles that matches these search criteria.  All articles were downloaded as of 5pm ET on October 22.
+3. I identified all articled posted by _The Washington Post_ between October 7, 2023, and October 22, 2023, hat contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 678 articles that matches these search criteria.  All articles were downloaded as of 5pm ET on October 22.
+4. I identified all articled posted by _The Wall Street Journal_ between October 7, 2023, and October 22, 2023, hat contained any of the keywords: Palestine, Israel, Palestinian, or Israeli.  In total, there were 669 articles that matches these search criteria.  All articles were downloaded as of 5pm ET on October 22.
+
+These three newspapers (_New York Times_, _Washington Post_, and _Wall Street Journal_) were chosen for a number of reasons.  First, multiple online sources listed them among the most read newspapers in the US (see [this article from Press Gazette](https://pressgazette.co.uk/media-audience-and-business-data/media_metrics/top-25-us-newspaper-circulations-down-march-2023/) which ranks the _Wall Street Journal_, _New York Times_, and _Washington Post_ as the US's most-circulated newspapers as of 2023 and [this 2021 report from Pew Research](https://www.pewresearch.org/journalism/fact-sheet/newspapers/) which refers to the _New York Times_, _Wall Street Journal_, and _Washington Post_ as "three of the highest-circulation daily papers in the U.S.").  Second, I was limited by dataset availability (I do not have access to sources like CNN and MSN).  Despite this, there are many mainstream newspapers that would be critical to investigate in addition (such as _USA Today_ and the _LA Times_).
+
 
 ### 2. Data Pre-Processing
 
-For each article of the 991 pre-filtered articles, I applied Stanford CoreNLP to derive linguistic annotations for text, including token and sentence boundaries, parts of speech, named entities, and dependency and constituency parses.
+For each article of the pre-filtered articles, I applied Stanford CoreNLP to derive linguistic annotations for text, including token and sentence boundaries, parts of speech, named entities, and dependency and constituency parses.
 
 The script ```code/data-processing.py``` prepares the articles from the ProQuest database for analysis with Stanford CoreNLP.
 
 After running the data processing script, I use Java (v.1.8) to process all the articles with Stanford CoreNLP using the following command:
 
 ```bash
-java -Xmx10g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,depparse -filelist all-files-israel-palestine-war.txt -outputFormat json -outputDirectory ../results/israel_palestine_war -threads 6
+java -Xmx10g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,depparse -filelist all-files.txt -outputFormat json -outputDirectory ../results -threads 6
 ```
 
-where ```all-files-israel-palestine-war.txt``` sequentially lists the filenames of each article to be processed.
+where ```all-files.txt``` sequentially lists the filenames of each article to be processed.
 
 ### 3. Automated and Manual Tagging
 
-Using the linguistic annotations from Stanford CoreNLP, I automatically extract all sentences with verbs related to death using a pre-compiled word bank.  Five hundred of the 991 articles contained sentences related to death.  I built a simple user interface that presents each sentence to the annotator and asks them to identify the victim described in the sentence as either Palestinian, Israeli, both (if the sentence contains multiple victimes), or none (if the sentence is unrelated to Palestine and Israel).
+Using the linguistic annotations from Stanford CoreNLP, I automatically extract all sentences with verbs related to death using a pre-compiled word bank.  I built a simple user interface that presents each sentence to the annotator and asks them to identify the victim described in the sentence as either Palestinian, Israeli, both (if the sentence contains multiple victims), or none (if the sentence is unrelated to Palestine and Israel).
 
 The data is manually tagged according to the following general rules:
 * The victim must be Palestinian or Israeli or the death otherwise occured in the West Bank, Gaza, or Israel ('48 lands)
@@ -53,28 +62,53 @@ There is also an option for 'Next', if the sentence contains insufficient detail
 
 The script ```code/fatality-analysis-semi-auto.py``` performs the automatic tagging and displays the user interface for manual tagging.  Any sentences tagged 'Palestine' or 'Israel' are saved to CSV files aling with relevant article metadata.
 
-All of the manually-tagged results are compiled in ```data/tagged_data.csv```.
+I repeated this process for multiple datasets and produced files of the manually-tagged results:
+1. For _New York Times_ articles (print and online) between October 7, 2023, and October 18, 2023, the manually-tagged results are stored in ```data/tagged_data_nyt_oct7_to_oct18.csv```.
+2. For _New York Times_ articles (print and online)  between October 7, 2023, and October 22, 2023, the manually-tagged results are stored in ```data/tagged_data_nyt_oct7_to_oct18.csv``` and ```data/tagged_data_nyt_oct18_to_oct22.csv```.  I only manually tagged articles that had not already been classified in the previous NYT dataset that was downloaded on October 18.  However, this means that any updates to articles from October 7, 2023 through October 18, 2023 made after October 18 are not counted.
+3. For _Washington Post_ articles (print and online)  between October 7, 2023, and October 22, 2023, the manually-tagged results are stored in ```data/tagged_data_wp_oct7_to_oct22.csv```.
+4. For _Wall Street Journal_ articles (print and online)  between October 7, 2023, and October 22, 2023, the manually-tagged results are stored in ```data/tagged_data_wp_oct7_to_oct22.csv```.
 
 ### 4. Comparisons to UN fatality data 
 
-To produce the second chart, I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 18, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs.  The spreadsheet ```ocha_data_comparison.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with their respective OCHA sources for each day.  In addition, the final death mention counts from step 3 are included in the final for ease of plotting.
+I compiled casualty data for Israelis and Palestinians from October 7, 2023, to October 22, 2023, from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA).  The spreadsheet ```data/ocha_data_oct7_to_oct22.csv``` contains casualty data from the West Bank, Gaza, and Israel with labeled with the respective OCHA sources for each day.
+
+This data can be used to produce a number of interesting metrics.  Fatality counts can be compared side-by-side to plots of mentions of Palestinian and Israeli deaths in each newspaper, which for example is done for _The New York Times_ in ```images/mentions_nyt_styled.jpg```.  In addition, dividing the number of fatalities by the number of mentions of deaths can produce a ratio of deaths-per-mention, i.e. how many people die per each mention in a newspaper.
+
+![OCHA results](images/cumulative_data_ocha_oct7_to_oct22.jpg)
 
 ## Results 
 
-The New York Times has consistently mentioned Israeli deaths more often than Palestinian deaths. What’s more, their coverage of Israeli deaths is *increasing* as more Palestinians are dying. Israeli deaths have been mentioned the most on 10/12 and 10/13, even though Israeli deaths have plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about 4 Palestinians had to die to receive a mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
+All tagged data can be found in the ```data``` subdirectory, and all images can be found in the ```images``` subdirectory.
+
+### _The New York Times_ 
+
+![NYT results](images/mentions_nyt_oct7_to_oct22.png)
+
+_The New York Times_ has consistently mentioned Israeli deaths more often than Palestinian deaths overall from 10/7 to 10/22. Israeli deaths have been mentioned the most on 10/12 and 10/13, even though Israeli deaths plateaued since 10/12 and Palestinian deaths have skyrocketed.  Coverage of Israeli deaths *increased* as Palestinian deaths began to skyrocket.  On average, about four Palestinians died per each mention of Palestinian deaths in _The New York Times_.  On the other hand, Israeli deaths were matched almost exactly one-for-one by the _Times_.
 
 Please read the notes below on this data -- it’s crucial context.
 
-* In addition to the bias in sheer volume of coverage, there was a huge difference in the language used. The word “slaughter” was used 53 times in these articles since 10/7 to describe the deaths of Israelis and zero times to describe the death of Palestinians. The word “massacre” shows up 24 times in reference to Israelis and once in reference to Palestinians.
+* In addition to the bias in sheer volume of coverage, there was a huge difference in the language used. The word “slaughter” was used 53 times in these articles since 10/7 to describe the deaths of Israelis and zero times to describe the death of Palestinians. The word “massacre” shows up 24 times in reference to Israelis and once in reference to Palestinians in the tagged sentences.
 * The articles rarely mention the names of Palestinians who die — instead using terms like “mourner”, “resident”, “assailant” or “militant”.
-* In one article, a murdered Palestinian was simply referred to as the “bloodied corpse” of a presumed terrorist. This is still counted as a mention of a Palestinian death in the data despite the framing. Israelis who died were often mentioned individually and by name with reference to their families and professions which humanized them in comparison to anonymous Palestinians.
+* In one article, a murdered Palestinian was simply referred to as the “bloodied corpse” of a presumed "terrorist". This is still counted as a mention of a Palestinian death in the data despite the framing. Israelis who died were often mentioned individually and by name with reference to their families and professions which humanized them in comparison to anonymous Palestinians.
+
+### _The Washington Post_
+
+![WP results](images/mentions_wp_oct7_to_oct22.jpg)
+
+_The Washington Post_ has consistently mentioned Israeli deaths more often than Palestinian deaths overall from 10/7 to 10/22. Israeli deaths have been mentioned the most on 10/12 and 10/13, even though Israeli deaths plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about nine Palestinians died per mention of Palestinian deaths in _The Washington Post_.  On the other hand, two Israelis died per mention of Israeli deaths in the _Post_.
+
+### _The Wall Street Journal_
+
+![WSJ results](images/mentions_wsj_oct7_to_oct22.jpg)
+
+_The Wall Street Journal_ has consistently mentioned Israeli deaths more often than Palestinian deaths overall from 10/7 to 10/22. Israeli deaths have been mentioned the most on 10/12 and 10/13, even though Israeli deaths plateaued since 10/12 and Palestinian deaths have skyrocketed.  On average, about 17 Palestinians died per mention of Palestinian deaths in _The Wall Street Journal_.  On the other hand, three Israelis died per mention of Israeli deaths in the _WSJ_.
 
 ## Updates and Corrections
 
 [10/23/2023] Please note, there is a discrepancy in the dates in the chart of _New York Times_ death mentions in [this post](https://www.instagram.com/p/Cyl9HR7O4ap/).  Dates were accidentally selected from the neighboring article.  Please note that all death mention information is still entirely accurate and all trends explained in the post still hold true.  The corrected chart is shown below.
 
 ![styled corrected version](images/mentions_nyt_styled.jpg)
-
 
 
 ## Potential Sources of Bias and Error

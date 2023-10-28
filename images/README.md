@@ -8,12 +8,30 @@ The top plot shows mentions of Palestinian and Israeli deaths in _The New York T
 
 ![styled version](mentions_nyt_styled.jpg)
 
+## mentions_nyt_oct7_to_oct22.jpg
 
-## mentions_nyt.jpg
+This plot shows mentions of Palestinian and Israeli deaths in _The New York Times_ between October 7 and October 22, 2023. Compare with the cumulative Palestinian and Israeli deaths as reported by the United Nations Office for the Coordination of Humanitarian Affairs (OCHA) in ```cumulative_deaths_ocha_oct7_to_oct22.jpg```.
 
-Unstyled version of ```mentions_styled_nyt.jpg```.
+![instyled version](mentions_nyt_oct7_to_oct22.jpg)
 
-![instyled version](mentions_nyt.jpg)
+## mentions_wp_oct7_to_oct22.jpg
+
+This plot shows mentions of Palestinian and Israeli deaths in _The Washington Post_ between October 7 and October 22, 2023. Compare with the cumulative Palestinian and Israeli deaths as reported by OCHA in ```cumulative_deaths_ocha_oct7_to_oct22.jpg```.
+
+![instyled version](mentions_wp_oct7_to_oct22.jpg)
+
+## mentions_wsj_oct7_to_oct22.jpg
+
+This plot shows mentions of Palestinian and Israeli deaths in _The Wall Street Journal_ between October 7 and October 22, 2023. Compare with the cumulative Palestinian and Israeli deaths as reported by OCHA in ```cumulative_deaths_ocha_oct7_to_oct22.jpg```.
+
+![instyled version](mentions_wsj_oct7_to_oct22.jpg)
+
+## mentions_wp_oct7_to_oct22.jpg
+
+This plot shows cumulative data on Palestinian and Israeli deaths from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA) from October 7 to October 22, 2023.
+
+![instyled version](cumulative_deaths_ocha_oct7_to_oct22.jpg)
+
 
 # Past results
 
@@ -23,10 +41,3 @@ Original plots from [this post](https://www.instagram.com/p/Cyl9HR7O4ap/) from O
 
 
 ![original off-by-one version](mentions_nyt_styled_ORIGINAL_OFF_BY_ONE.jpg)
-
-## mentions_nyt_ORIGINAL_OFF_BY_ONE.jpg
-
-Unstyled version of ```mentions_nyt_styled_ORIGINAL_OFF_BY_ONE.jpg```.
-
-
-![unstyled off-by-one version](mentions_nyt_ORIGINAL_OFF_BY_ONE.jpg)
